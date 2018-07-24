@@ -1,0 +1,17 @@
+C=0;
+for ii=1:GenLength:ChromLenght-2*GenLength
+    temp1=Path(ii:ii+GenLength-1);
+    temp2=Path(ii+GenLength:ii+2*GenLength-1);
+    if bi2de(temp1)>node|bi2de(temp2)>node
+        C=0;
+        break;
+    end
+    if temp1==zeros(1,GenLength)|temp2==zeros(1,GenLength)
+        continue;
+    end
+    if Dir_Cost(bi2de(temp1),bi2de(temp2))==0
+        C=0;
+        break;
+    end
+    C=C+Dir_Cost(bi2de(temp1),bi2de(temp2))
+ end

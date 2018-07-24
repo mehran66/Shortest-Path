@@ -1,0 +1,16 @@
+function MutatPop=Mutation_Fnc(Pop,PopSize,MutatNum,ChromLenght,Dir_Cost,GenLength,node)
+CrossPoint=ChromLenght*2;
+num=ceil(rand(1,MutatNum)*PopSize);
+for ii=1:MutatNum
+    for jj=1:50
+    temp=Pop(num(ii),:);
+    if temp(CrossPoint)==0
+        temp(CrossPoint)=1;
+    else 
+        temp(CrossPoint)=0;
+    end
+    Path=temp;
+    C=Cost_Fnc(Path,Dir_Cost,GenLength,ChromLenght,node)
+    end
+    MutatPop(ii,:)=temp;
+end
